@@ -1,9 +1,9 @@
-package org.example;
+package gui;
 
-public class Main {
+public class CRApplication {
     public static void main(String[] args) {
 
-        System.out.println("Hello( world!");
+        System.out.println("Hello world!");
         CreateTables.createTables();
     }
 }

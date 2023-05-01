@@ -1,4 +1,4 @@
-package org.example;
+package gui;
 import java.sql.*;
 public class CreateTables {
         public static void createTables() {
