@@ -69,6 +69,15 @@ public class CreateTables{
     }
 
     public void addCourse(Course course) {
-
+        try {
+            String department = course.getDepartment();
+            int catalogNumber = course.getCatalogNumber();
+            Statement statement = conn.createStatement();
+            String sql = "INSERT INTO Courses (department, catalog_number) "
+                    + "VALUES ('" + department + "', '" + catalogNumber + "');";
+            statement.executeUpdate(sql);
+        } catch (SQLException e) {
+            throw new IllegalStateException("Error in adding to database");
+        }
     }
 }
