@@ -55,14 +55,15 @@ public class CreateTables{
         System.out.println("Tables created successfully");
     }
 
+    //Resource used to create prepared statement: https://stackoverflow.com/questions/370818/cleanest-way-to-build-an-sql-string-in-java
     public void addStudent(Student student) {
         try {
             String login = student.getLogin();
             String password = student.getPassword();
-            Statement statement = conn.createStatement();
-            String sql = "INSERT INTO Students (login_name, password) "
-                    + "VALUES ('" + login + "', '" + password + "');";
-            statement.executeUpdate(sql);
+            PreparedStatement statement = conn.prepareStatement("INSERT INTO Students (login_name, password) VALUES (?,?)");
+            statement.setString(1, login);
+            statement.setString(2, password);
+            statement.executeUpdate();
         } catch (SQLException e) {
             throw new IllegalStateException("Error in adding to database");
         }
@@ -72,10 +73,10 @@ public class CreateTables{
         try {
             String department = course.getDepartment();
             int catalogNumber = course.getCatalogNumber();
-            Statement statement = conn.createStatement();
-            String sql = "INSERT INTO Courses (department, catalog_number) "
-                    + "VALUES ('" + department + "', '" + catalogNumber + "');";
-            statement.executeUpdate(sql);
+            PreparedStatement statement = conn.prepareStatement("INSERT INTO Courses (department, catalog_number) VALUES (?,?)");
+            statement.setString(1, department);
+            statement.setInt(2, catalogNumber);
+            statement.executeUpdate();
         } catch (SQLException e) {
             throw new IllegalStateException("Error in adding to database");
         }
