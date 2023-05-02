@@ -1,16 +1,18 @@
-package gui;
+package reviews;
 import reviews.Student;
 
 import java.sql.*;
-public class CreateTables {
+public class CreateTables{
+    Connection conn;
 
-    public static void createTables() {
+
+    public void createTables() {
         try {
             // Load the SQLite JDBC driver
             Class.forName("org.sqlite.JDBC");
 
             // Open a connection to the database
-            Connection conn = DriverManager.getConnection("jdbc:sqlite:Reviews.sqlite3");
+            conn = DriverManager.getConnection("jdbc:sqlite:Reviews.sqlite3");
 
             // Create a Statement object
             Statement stmt = conn.createStatement();
@@ -51,9 +53,22 @@ public class CreateTables {
             System.exit(0);
             }
         System.out.println("Tables created successfully");
-        }
     }
 
     public void addStudent(Student student) {
+        try {
+            String login = student.getLogin();
+            String password = student.getPassword();
+            Statement statement = conn.createStatement();
+            String sql = "INSERT INTO Students (login_name, password) "
+                    + "VALUES ('" + login + "', '" + password + "');";
+            statement.executeUpdate(sql);
+        } catch (SQLException e) {
+            throw new IllegalStateException("Error in adding to database");
+        }
+    }
+
+    public void addCourse(Course course) {
 
     }
+}

@@ -5,9 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="02de0d34-ad15-43f9-adc5-a82e65a6a4dd" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/reviews/Student.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/reviews/Course.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/gui/CreateTables.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/gui/CreateTables.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/gui/CRApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/gui/CRApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/gui/CreateTables.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/reviews/CreateTables.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/reviews/Student.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/reviews/Student.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -34,6 +36,7 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="Interface" />
         <option value="Class" />
       </list>
     </option>
@@ -122,7 +125,14 @@
       <option name="project" value="LOCAL" />
       <updated>1682984537092</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="creating student class">
+      <created>1682985818694</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1682985818694</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -142,6 +152,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="build.gradle" />
     <MESSAGE value="adding foreign keys" />
-    <option name="LAST_COMMIT_MESSAGE" value="adding foreign keys" />
+    <MESSAGE value="creating student class" />
+    <option name="LAST_COMMIT_MESSAGE" value="creating student class" />
   </component>
 </project>

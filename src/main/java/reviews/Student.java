@@ -9,6 +9,10 @@ public class Student {
         this.password = password;
     }
 
+    public Student() {
+
+    }
+
     public String getLogin() {
         return login;
     }
