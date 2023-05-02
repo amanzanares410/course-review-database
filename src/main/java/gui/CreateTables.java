@@ -1,4 +1,6 @@
 package gui;
+import reviews.Student;
+
 import java.sql.*;
 public class CreateTables {
 
@@ -50,4 +52,8 @@ public class CreateTables {
             }
         System.out.println("Tables created successfully");
         }
+    }
+
+    public void addStudent(Student student) {
+
     }
