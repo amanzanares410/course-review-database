@@ -5,15 +5,25 @@ import java.sql.*;
 public class CreateTables{
     Connection conn;
 
-
-    public void createTables() {
+    public void connect() {
+        if (conn != null) {
+            throw new IllegalStateException("Manager is already connected");
+        }
         try {
             // Load the SQLite JDBC driver
             Class.forName("org.sqlite.JDBC");
 
             // Open a connection to the database
             conn = DriverManager.getConnection("jdbc:sqlite:Reviews.sqlite3");
+            conn.setAutoCommit(false);
+            conn.commit();
+        } catch(ClassNotFoundException | SQLException e) {
+            throw new IllegalStateException(e);
+        }
+    }
 
+    public void createTables() {
+        try {
             // Create a Statement object
             Statement stmt = conn.createStatement();
 
@@ -48,10 +58,10 @@ public class CreateTables{
             // Close the Statement and Connection objects
             stmt.close();
             conn.close();
-        } catch (ClassNotFoundException | SQLException e) {
+        } catch (SQLException e) {
             System.err.println(e.getClass().getName() + ": " + e.getMessage());
             System.exit(0);
-            }
+        }
         System.out.println("Tables created successfully");
     }
 

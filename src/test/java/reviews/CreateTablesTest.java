@@ -6,7 +6,14 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
 class CreateTablesTest {
-    CreateTables createTables = new CreateTables();
+    CreateTables createTables;
+
+    @BeforeEach
+    public void setup() {
+        createTables = new CreateTables();
+        createTables.connect();
+        createTables.createTables();
+    }
 
     @Test
     void createTables() {
