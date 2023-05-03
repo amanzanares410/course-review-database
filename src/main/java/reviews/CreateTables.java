@@ -48,7 +48,7 @@ public class CreateTables{
             // Close the Statement and Connection objects
             stmt.close();
             conn.close();
-        } catch (Exception e) {
+        } catch (ClassNotFoundException | SQLException e) {
             System.err.println(e.getClass().getName() + ": " + e.getMessage());
             System.exit(0);
             }
@@ -73,6 +73,9 @@ public class CreateTables{
         try {
             String department = course.getDepartment();
             int catalogNumber = course.getCatalogNumber();
+            if ((catalogNumber) <= 0){
+                throw new IllegalArgumentException("Catalog number should be positive");
+            }
             PreparedStatement statement = conn.prepareStatement("INSERT INTO Courses (department, catalog_number) VALUES (?,?)");
             statement.setString(1, department);
             statement.setInt(2, catalogNumber);
