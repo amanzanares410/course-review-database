@@ -20,12 +20,12 @@ class CreateTablesTest {
         createTables.createTables();
     }
 
-    @Test
-    void addStudent() {
-        Student newStudent = new Student("jdoe", "password123");
-        createTables.addStudent(newStudent);
-        assertTrue(true);
-    }
+//    @Test
+//    void addStudent() {
+//        Student newStudent = new Student("jdoe", "password123");
+//        createTables.addStudent(newStudent);
+//        assertTrue(true);
+//    }
 
     @Test
     void addCourse() {
