@@ -57,7 +57,7 @@ public class CreateTables{
 
             // Close the Statement and Connection objects
             stmt.close();
-            conn.close();
+//            conn.close();
         } catch (SQLException e) {
             System.err.println(e.getClass().getName() + ": " + e.getMessage());
             System.exit(0);
