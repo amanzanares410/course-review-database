@@ -5,10 +5,13 @@ public class Review {
     private Student student;
     private String reviewText;
 
+    private int rating;
+
     public Review(String courseCode, Student student, String reviewText) {
         this.courseCode = courseCode;
         this.student = student;
         this.reviewText = reviewText;
+        this.rating = rating;
     }
 
     public String getCourseCode() {
@@ -22,4 +25,6 @@ public class Review {
     public String getReviewText() {
         return reviewText;
     }
+
+    public int getRating()  { return rating; }
 }
