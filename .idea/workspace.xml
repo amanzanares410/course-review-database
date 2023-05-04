@@ -4,10 +4,22 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="02de0d34-ad15-43f9-adc5-a82e65a6a4dd" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/resources/gui.fxml/existinguser.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/gui.fxml/newuser.fxml" afterDir="false" />
+    <list default="true" id="02de0d34-ad15-43f9-adc5-a82e65a6a4dd" name="Changes" comment="tables">
+      <change afterPath="$PROJECT_DIR$/src/main/java/gui/Course.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/gui/CourseReviewsSystem.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/gui/CourseReviewsSystemUI.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/gui/Database.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/gui/Review.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/gui/Student.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/7.5.1/checksums/checksums.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.5.1/checksums/checksums.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/7.5.1/checksums/sha1-checksums.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.5.1/checksums/sha1-checksums.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/gui/CUcontroller.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/gui/FScontroller.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/gui/MMController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/gui/SRController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/gui/loginController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/gui/rController.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -34,10 +46,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Interface" />
-        <option value="Class" />
-        <option value="Tag Library Descriptor" />
         <option value="FxmlFile" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -56,8 +66,8 @@
   "keyToString": {
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "C:/Users/amanz/IdeaProjects/openjfx-20_windows-x64_bin-sdk.zip",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -80,112 +90,7 @@
       <recent name="$PROJECT_DIR$" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.CRApplication">
-    <configuration name="CRApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="gui.CRApplication" />
-      <module name="gradle.main" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="gui.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="CreateTablesTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
-      <ExternalSystemSettings>
-        <option name="executionName" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$" />
-        <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" value="" />
-        <option name="taskDescriptions">
-          <list />
-        </option>
-        <option name="taskNames">
-          <list>
-            <option value=":test" />
-            <option value="--tests" />
-            <option value="&quot;reviews.CreateTablesTest&quot;" />
-          </list>
-        </option>
-        <option name="vmOptions" />
-      </ExternalSystemSettings>
-      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
-      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
-      <DebugAllEnabled>false</DebugAllEnabled>
-      <method v="2" />
-    </configuration>
-    <configuration name="CreateTablesTest.addCourse" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
-      <ExternalSystemSettings>
-        <option name="executionName" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$" />
-        <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" value="" />
-        <option name="taskDescriptions">
-          <list />
-        </option>
-        <option name="taskNames">
-          <list>
-            <option value=":test" />
-            <option value="--tests" />
-            <option value="&quot;reviews.CreateTablesTest.addCourse&quot;" />
-          </list>
-        </option>
-        <option name="vmOptions" />
-      </ExternalSystemSettings>
-      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
-      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
-      <DebugAllEnabled>false</DebugAllEnabled>
-      <method v="2" />
-    </configuration>
-    <configuration name="CreateTablesTest.addStudent" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
-      <ExternalSystemSettings>
-        <option name="executionName" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$" />
-        <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" value="" />
-        <option name="taskDescriptions">
-          <list />
-        </option>
-        <option name="taskNames">
-          <list>
-            <option value=":test" />
-            <option value="--tests" />
-            <option value="&quot;reviews.CreateTablesTest.addStudent&quot;" />
-          </list>
-        </option>
-        <option name="vmOptions" />
-      </ExternalSystemSettings>
-      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
-      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
-      <DebugAllEnabled>false</DebugAllEnabled>
-      <method v="2" />
-    </configuration>
-    <configuration name="CreateTablesTest.createTables" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
-      <ExternalSystemSettings>
-        <option name="executionName" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$" />
-        <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" value="" />
-        <option name="taskDescriptions">
-          <list />
-        </option>
-        <option name="taskNames">
-          <list>
-            <option value=":test" />
-            <option value="--tests" />
-            <option value="&quot;reviews.CreateTablesTest.createTables&quot;" />
-          </list>
-        </option>
-        <option name="vmOptions" />
-      </ExternalSystemSettings>
-      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
-      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
-      <DebugAllEnabled>false</DebugAllEnabled>
-      <method v="2" />
-    </configuration>
+  <component name="RunManager">
     <configuration default="true" type="JetRunConfigurationType">
       <module name="hw7-coursereview-qvp8hy-yvp9pc-fnv2vx" />
       <method v="2">
@@ -199,15 +104,6 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <recent_temporary>
-      <list>
-        <item itemvalue="Application.CRApplication" />
-        <item itemvalue="Gradle.CreateTablesTest" />
-        <item itemvalue="Gradle.CreateTablesTest.addCourse" />
-        <item itemvalue="Gradle.CreateTablesTest.addStudent" />
-        <item itemvalue="Gradle.CreateTablesTest.createTables" />
-      </list>
-    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -219,8 +115,7 @@
       <updated>1682383959587</updated>
       <workItem from="1682383961528" duration="2726000" />
       <workItem from="1682706918344" duration="2310000" />
-      <workItem from="1682709243966" duration="1679000" />
-      <workItem from="1683125196044" duration="10545000" />
+      <workItem from="1682709243966" duration="6767000" />
     </task>
     <task id="LOCAL-00001" summary="build.gradle">
       <created>1682707410631</created>
@@ -236,77 +131,21 @@
       <option name="project" value="LOCAL" />
       <updated>1682707498954</updated>
     </task>
-    <task id="LOCAL-00003" summary="adding foreign keys">
-      <created>1682984537092</created>
+    <task id="LOCAL-00003" summary="database">
+      <created>1682710950662</created>
       <option name="number" value="00003" />
       <option name="presentableId" value="LOCAL-00003" />
       <option name="project" value="LOCAL" />
-      <updated>1682984537092</updated>
+      <updated>1682710950662</updated>
     </task>
-    <task id="LOCAL-00004" summary="creating student class">
-      <created>1682985818694</created>
+    <task id="LOCAL-00004" summary="tables">
+      <created>1682712344448</created>
       <option name="number" value="00004" />
       <option name="presentableId" value="LOCAL-00004" />
       <option name="project" value="LOCAL" />
-      <updated>1682985818694</updated>
+      <updated>1682712344448</updated>
     </task>
-    <task id="LOCAL-00005" summary="implementing addStudent method&#10;creating course class">
-      <created>1682988485785</created>
-      <option name="number" value="00005" />
-      <option name="presentableId" value="LOCAL-00005" />
-      <option name="project" value="LOCAL" />
-      <updated>1682988485785</updated>
-    </task>
-    <task id="LOCAL-00006" summary="implementing addCourse method">
-      <created>1682988814288</created>
-      <option name="number" value="00006" />
-      <option name="presentableId" value="LOCAL-00006" />
-      <option name="project" value="LOCAL" />
-      <updated>1682988814288</updated>
-    </task>
-    <task id="LOCAL-00007" summary="fixing addStudent and addCourse">
-      <created>1682993969551</created>
-      <option name="number" value="00007" />
-      <option name="presentableId" value="LOCAL-00007" />
-      <option name="project" value="LOCAL" />
-      <updated>1682993969551</updated>
-    </task>
-    <task id="LOCAL-00008" summary="implementing connect function">
-      <created>1683125934365</created>
-      <option name="number" value="00008" />
-      <option name="presentableId" value="LOCAL-00008" />
-      <option name="project" value="LOCAL" />
-      <updated>1683125934365</updated>
-    </task>
-    <task id="LOCAL-00009" summary="updating test class and fixing bags">
-      <created>1683126345207</created>
-      <option name="number" value="00009" />
-      <option name="presentableId" value="LOCAL-00009" />
-      <option name="project" value="LOCAL" />
-      <updated>1683126345207</updated>
-    </task>
-    <task id="LOCAL-00010" summary="adding javafx dependencies">
-      <created>1683127896937</created>
-      <option name="number" value="00010" />
-      <option name="presentableId" value="LOCAL-00010" />
-      <option name="project" value="LOCAL" />
-      <updated>1683127896937</updated>
-    </task>
-    <task id="LOCAL-00011" summary="adding javafx to project structure">
-      <created>1683129104812</created>
-      <option name="number" value="00011" />
-      <option name="presentableId" value="LOCAL-00011" />
-      <option name="project" value="LOCAL" />
-      <updated>1683129104812</updated>
-    </task>
-    <task id="LOCAL-00012" summary="adding ability to change scenes in application class">
-      <created>1683136316797</created>
-      <option name="number" value="00012" />
-      <option name="presentableId" value="LOCAL-00012" />
-      <option name="project" value="LOCAL" />
-      <updated>1683136316797</updated>
-    </task>
-    <option name="localTasksCounter" value="13" />
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -325,27 +164,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="build.gradle" />
-    <MESSAGE value="adding foreign keys" />
-    <MESSAGE value="creating student class" />
-    <MESSAGE value="implementing addStudent method&#10;creating course class" />
-    <MESSAGE value="implementing addCourse method" />
-    <MESSAGE value="fixing addStudent and addCourse" />
-    <MESSAGE value="implementing connect function" />
-    <MESSAGE value="updating test class and fixing bags" />
-    <MESSAGE value="adding javafx dependencies" />
-    <MESSAGE value="adding javafx to project structure" />
-    <MESSAGE value="adding ability to change scenes in application class" />
-    <option name="LAST_COMMIT_MESSAGE" value="adding ability to change scenes in application class" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/reviews/CreateTables.java</url>
-          <line>70</line>
-          <option name="timeStamp" value="4" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
+    <MESSAGE value="database" />
+    <MESSAGE value="tables" />
+    <option name="LAST_COMMIT_MESSAGE" value="tables" />
   </component>
 </project>
