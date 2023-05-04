@@ -7,11 +7,11 @@ public class Review {
 
     private int rating;
 
-    public Review(String courseCode, Student student, String reviewText) {
+    public Review(String courseCode, Student student, String reviewText, int rating) {
         this.courseCode = courseCode;
         this.student = student;
         this.reviewText = reviewText;
-        this.rating = rating;
+        this.rating = this.rating;
     }
 
     public String getCourseCode() {

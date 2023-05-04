@@ -111,8 +111,10 @@ public class CourseReviewsSystemUI {
         String courseCode = scanner.nextLine();
         System.out.println("Enter review text:");
         String reviewText = scanner.nextLine();
+        System.out.println("Enter rating:");
+        int rating = Integer.parseInt(scanner.nextLine());
 
-        courseReviewsSystem.addReview(courseCode, reviewText);
+        courseReviewsSystem.addReview(courseCode, reviewText, rating);
         System.out.println("Review added successfully.");
     }
 
