@@ -1,5 +1,7 @@
 package gui;
 
+import reviews.CreateTables;
+
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Scanner;
@@ -9,13 +11,21 @@ import java.util.List;
 public class CourseReviewsSystemUI {
     private CourseReviewsSystem courseReviewsSystem;
     private Scanner scanner;
+    private CreateTables createTables;
 
     public CourseReviewsSystemUI() {
         courseReviewsSystem = new CourseReviewsSystem();
         scanner = new Scanner(System.in);
     }
 
+    public void generateTables() {
+        createTables = new CreateTables();
+        createTables.connect();
+        createTables.createTables();
+    }
+
     public void run() {
+        generateTables();
         boolean running = true;
         while (running) {
             System.out.println("Welcome to UVA Course Reviews System.");
