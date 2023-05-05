@@ -42,6 +42,13 @@ public class CourseReviewsSystem {
         }
     }
 
+    public void addReviewBeginning(Course course, Student student, String reviewText, int rating) {
+            Review newReview = new Review(course, student, reviewText, rating);
+            database.addReview(newReview);
+    }
+
+
+
     public List<Review> getReviews(Course course) {
         return database.getReviews(course);
     }

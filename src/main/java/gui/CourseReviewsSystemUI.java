@@ -192,8 +192,29 @@ public class CourseReviewsSystemUI {
         }
     }
 
+    public void starterDatabase() {
+        Student student1 = new Student("priscillatehrani", "yvp9pc");
+        Student student2 = new Student("ashleymanzanares","fnv2vx");
+        Student student3 = new Student("juliatan","qvp8hy");
+        courseReviewsSystem.registerStudent("priscillatehrani", "yvp9pc");
+        courseReviewsSystem.registerStudent("ashleymanzanares","fnv2vx");
+        courseReviewsSystem.registerStudent("juliatan","qvp8hy");
+        Course course1 = new Course("CS",3140);
+        Course course2 = new Course("CS", 2100);
+        Course course3 = new Course("APMA", 3100);
+        courseReviewsSystem.addCourse("CS",3140);
+        courseReviewsSystem.addCourse("CS",2100);
+        courseReviewsSystem.addCourse("APMA", 3100);
+        courseReviewsSystem.addReviewBeginning(course1,student1,"Great class!", 4);
+        courseReviewsSystem.addReviewBeginning(course1,student2,"This class was so helpful", 5);
+        courseReviewsSystem.addReviewBeginning(course1,student3,"Interesting but challenging", 3);
+        courseReviewsSystem.addReviewBeginning(course2,student3,"Loved this class, great professor", 5);
+        courseReviewsSystem.addReviewBeginning(course3,student2,"Super challenging", 2);
+    }
+
     public static void main(String[] args) {
         CourseReviewsSystemUI ui = new CourseReviewsSystemUI();
+        ui.starterDatabase();
         ui.run1();
     }
 }
