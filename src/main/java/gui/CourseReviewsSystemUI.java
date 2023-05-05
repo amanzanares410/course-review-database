@@ -12,7 +12,6 @@ public class CourseReviewsSystemUI {
     private CourseReviewsSystem courseReviewsSystem;
     private Scanner scanner;
 
-
     public CourseReviewsSystemUI() {
         courseReviewsSystem = new CourseReviewsSystem();
         scanner = new Scanner(System.in);
