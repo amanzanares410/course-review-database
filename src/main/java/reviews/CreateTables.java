@@ -156,6 +156,9 @@ public class CreateTables{
     //Resource used to create prepared statement: https://stackoverflow.com/questions/370818/cleanest-way-to-build-an-sql-string-in-java
     public void addStudent(Student student) {
         try {
+            if (connection== null || connection.isClosed()) {
+                throw new IllegalStateException("Manager is not connected.");
+            }
             String login = student.getLogin();
             String password = student.getPassword();
             PreparedStatement statement = connection.prepareStatement("INSERT INTO Students (login_name, password) VALUES (?,?)");
@@ -169,6 +172,9 @@ public class CreateTables{
 
     public Student getStudent(Student student) {
         try{
+            if (connection== null || connection.isClosed()) {
+                throw new IllegalStateException("Manager is not connected.");
+            }
             //Parse Student records into Student objects
             PreparedStatement statement = connection.prepareStatement("SELECT FROM Students WHERE login_name = ?");
             statement.setString(1, student.getLogin());
@@ -186,6 +192,9 @@ public class CreateTables{
 
     public void addCourse(Course course) {
         try {
+            if (connection== null || connection.isClosed()) {
+                throw new IllegalStateException("Manager is not connected.");
+            }
             String department = course.getDepartment();
             int catalogNumber = course.getCatalogNumber();
             if ((catalogNumber) <= 0){
@@ -201,6 +210,9 @@ public class CreateTables{
     }
     public Course getCourse(Course course) {
         try{
+            if (connection== null || connection.isClosed()) {
+                throw new IllegalStateException("Manager is not connected.");
+            }
             PreparedStatement statement = connection.prepareStatement("SELECT FROM Courses WHERE department = ?");
             statement.setString(1, course.getDepartment());
             ResultSet resultSet = statement.executeQuery();
@@ -215,6 +227,9 @@ public class CreateTables{
     }
     public void addReview(Review review) {
         try {
+            if (connection== null || connection.isClosed()) {
+                throw new IllegalStateException("Manager is not connected.");
+            }
             Course course = review.getCourse();
             Student student = review.getStudent();
             String reviewText = review.getReviewText();
@@ -234,14 +249,18 @@ public class CreateTables{
     }
     public Review getCourse(Review review) {
         try{
+            if (connection== null || connection.isClosed()) {
+                throw new IllegalStateException("Manager is not connected.");
+            }
             PreparedStatement statement = connection.prepareStatement("SELECT FROM Reviews WHERE reviewText = ?");
             statement.setString(1, review.getReviewText());
             ResultSet resultSet = statement.executeQuery();
-
-            String department = resultSet.getString("department");
-            int catalogNumber = resultSet.getInt("catalog_number");
-            Course newCourse = new Course(department, catalogNumber);
-            return newCourse;
+            Course course = new Course();
+            Student student = new Student();
+            String reviewText = resultSet.getString("reviewText");
+            int rating = resultSet.getInt("rating");
+            Review newReview = new Review(course, student, reviewText, rating);
+            return newReview;
         } catch (SQLException e) {
             throw new IllegalStateException("Error in reading from the database");
         }
