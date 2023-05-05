@@ -314,4 +314,20 @@ public class CreateTables{
             throw new IllegalStateException("Error in reading from the database");
         }
     }
+
+    public boolean hasReviewedCourse(Student student, Course course) {
+        try {connection = DriverManager.getConnection("jdbc:sqlite:Reviews.sqlite3");
+             PreparedStatement statement1 = connection.prepareStatement("SELECT COUNT(*) FROM reviews WHERE student_username = ? AND course_dept = ? AND course_num = ?");
+             statement1.setString(1, student.getLogin());
+             statement1.setString(2, course.getDepartment());
+             statement1.setInt(3, course.getCatalogNumber());
+                ResultSet rs = statement1.executeQuery();
+                rs.next();
+                int count = rs.getInt(1);
+                return count > 0;
+        }catch (SQLException e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
 }

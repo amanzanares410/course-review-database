@@ -34,8 +34,12 @@ public class CourseReviewsSystem {
     }
 
     public void addReview(Course course, String reviewText, int rating) {
-        Review newReview = new Review(course, loggedInStudent, reviewText, rating);
-        database.addReview(newReview);
+        if (database.hasReviewedCourse(loggedInStudent, course)) {
+            System.out.println("You have already reviewed this course.");
+        } else {
+            Review newReview = new Review(course, loggedInStudent, reviewText, rating);
+            database.addReview(newReview);
+        }
     }
 
     public List<Review> getReviews(Course course) {
