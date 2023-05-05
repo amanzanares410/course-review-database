@@ -11,7 +11,7 @@ public class Review {
         this.courseCode = courseCode;
         this.student = student;
         this.reviewText = reviewText;
-        this.rating = this.rating;
+        this.rating = rating;
     }
 
     public String getCourseCode() {
@@ -26,5 +26,6 @@ public class Review {
         return reviewText;
     }
 
-    public int getRating()  { return rating; }
+    public int getRating()  {
+        return rating; }
 }
