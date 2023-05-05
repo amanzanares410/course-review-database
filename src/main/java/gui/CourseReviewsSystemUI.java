@@ -154,6 +154,8 @@ public class CourseReviewsSystemUI {
             for (Review review : reviews) {
                 System.out.println(review.getStudent().getLogin() + ": " + review.getReviewText());
             }
+            double averageRating = courseReviewsSystem.getAverageRating(course);
+            System.out.println("Average rating: " + averageRating);
         }
     }
 

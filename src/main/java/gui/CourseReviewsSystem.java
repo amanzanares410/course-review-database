@@ -40,6 +40,19 @@ public class CourseReviewsSystem {
         return database.getReviews(course);
     }
 
+    public double getAverageRating(Course course) {
+        List<Review> reviews = database.getReviews(course);
+        if (reviews.isEmpty()) {
+            return 0;
+        } else {
+            int total = 0;
+            for (Review review : reviews) {
+                total += review.getRating();
+            }
+            return (double) total / reviews.size();
+        }
+    }
+
     public List<Course> getAllCourses() {
         return database.getAllCourses();
     }

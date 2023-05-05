@@ -28,4 +28,5 @@ public class Course {
     public void setCatalogNumber(int catalogNumber) {
         this.catalogNumber = catalogNumber;
     }
+
 }
