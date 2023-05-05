@@ -1,19 +1,31 @@
 package gui;
 
 public class Student {
-    private String username;
+    private String login;
     private String password;
 
-    public Student(String username, String password) {
-        this.username = username;
+    public Student(String login, String password) {
+        this.login = login;
         this.password = password;
     }
 
-    public String getUsername() {
-        return username;
+    public Student() {
+
+    }
+
+    public String getLogin() {
+        return login;
+    }
+
+    public void setLogin(String login) {
+        this.login = login;
     }
 
     public String getPassword() {
         return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 }

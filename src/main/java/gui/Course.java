@@ -1,19 +1,31 @@
 package gui;
 
 public class Course {
-    private String courseCode;
-    private String courseName;
+    private String department;
+    private int catalogNumber;
 
-    public Course(String courseCode, String courseName) {
-        this.courseCode = courseCode;
-        this.courseName = courseName;
+    public Course(String department, int catalogNumber) {
+        this.department = department;
+        this.catalogNumber = catalogNumber;
     }
 
-    public String getCourseCode() {
-        return courseCode;
+    public Course() {
+
     }
 
-    public String getCourseName() {
-        return courseName;
+    public String getDepartment() {
+        return department;
+    }
+
+    public void setDepartment(String department) {
+        this.department = department;
+    }
+
+    public int getCatalogNumber() {
+        return catalogNumber;
+    }
+
+    public void setCatalogNumber(int catalogNumber) {
+        this.catalogNumber = catalogNumber;
     }
 }

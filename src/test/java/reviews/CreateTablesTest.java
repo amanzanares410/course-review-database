@@ -1,5 +1,6 @@
 package reviews;
 
+import gui.Course;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 

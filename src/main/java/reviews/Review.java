@@ -1,5 +1,8 @@
 package reviews;
 
+import gui.Course;
+import gui.Student;
+
 public class Review {
 
     // associate each review with a specific student/course

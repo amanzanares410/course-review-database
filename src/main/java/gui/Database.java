@@ -17,7 +17,7 @@ public class Database {
     }
 
     public void addStudent(Student student) {
-        students.put(student.getUsername(), student);
+        students.put(student.getLogin(), student);
     }
 
     public Student getStudent(String username) {
@@ -25,7 +25,7 @@ public class Database {
     }
 
     public void addCourse(Course course) {
-        courses.put(course.getCourseCode(), course);
+        courses.put(course.getDepartment(), course);
     }
 
     public Course getCourse(String courseCode) {

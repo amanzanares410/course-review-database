@@ -1,5 +1,6 @@
 package reviews;
-import reviews.Student;
+import gui.Course;
+import gui.Student;
 
 import java.sql.*;
 public class CreateTables{
@@ -76,6 +77,23 @@ public class CreateTables{
             statement.executeUpdate();
         } catch (SQLException e) {
             throw new IllegalStateException("Error in adding to database");
+        }
+    }
+
+    public Student getStudent(Student student) {
+        try{
+            //Parse Student records into Student objects
+            PreparedStatement statement = conn.prepareStatement("SELECT FROM Students WHERE login_name = ?");
+            statement.setString(1, student.getLogin());
+            ResultSet resultSet = statement.executeQuery();
+
+            //Create new student from result set
+            String login = resultSet.getString("login_name");
+            String password = resultSet.getString("password");
+            Student newStudent = new Student(login, password);
+            return newStudent;
+        } catch (SQLException e) {
+            throw new IllegalStateException("Error in reading from the database");
         }
     }
 

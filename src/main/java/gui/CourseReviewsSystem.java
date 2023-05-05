@@ -24,8 +24,8 @@ public class CourseReviewsSystem {
         return false;
     }
 
-    public void addCourse(String courseCode, String courseName) {
-        Course newCourse = new Course(courseCode, courseName);
+    public void addCourse(String department, int catalogNumber) {
+        Course newCourse = new Course(department, catalogNumber);
         database.addCourse(newCourse);
     }
 

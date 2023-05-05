@@ -79,6 +79,9 @@ public class CourseReviewsSystemUI {
         System.out.println("Enter password:");
         String password = scanner.nextLine();
 
+        Student student = new Student(username,password);
+        createTables.addStudent(student);
+
         courseReviewsSystem.registerStudent(username, password);
         System.out.println("Student registered successfully.");
     }
@@ -97,12 +100,16 @@ public class CourseReviewsSystemUI {
     }
 
     private void addCourse() {
-        System.out.println("Enter course code:");
-        String courseCode = scanner.nextLine();
-        System.out.println("Enter course name:");
-        String courseName = scanner.nextLine();
+        System.out.println("Enter course department:");
+        String department = scanner.nextLine();
+        System.out.println("Enter course catalog number:");
+        String catalogNumber = scanner.nextLine();
 
-        courseReviewsSystem.addCourse(courseCode, courseName);
+        int intCatalogNumber = Integer.parseInt(catalogNumber);
+        Course course = new Course(department, intCatalogNumber);
+        createTables.addCourse(course);
+
+        courseReviewsSystem.addCourse(department, intCatalogNumber);
         System.out.println("Course added successfully.");
     }
 
@@ -127,7 +134,7 @@ public class CourseReviewsSystemUI {
             System.out.println("No reviews found for this course.");
         } else {
             for (Review review : reviews) {
-                System.out.println(review.getStudent().getUsername() + ": " + review.getReviewText());
+                System.out.println(review.getStudent().getLogin() + ": " + review.getReviewText());
             }
         }
     }
@@ -135,7 +142,7 @@ public class CourseReviewsSystemUI {
     private void getAllCourses() {
         List<Course> courses = courseReviewsSystem.getAllCourses();
         for (Course course : courses) {
-            System.out.println(course.getCourseCode() + " - " + course.getCourseName());
+            System.out.println(course.getDepartment() + " - " + course.getCatalogNumber());
         }
     }
 
@@ -147,8 +154,8 @@ public class CourseReviewsSystemUI {
         for (int i = 0; i < courses.size(); i++) {
             Course course = courses.get(i);
             sb.append("{");
-            sb.append("\"code\":\"").append(course.getCourseCode()).append("\",");
-            sb.append("\"title\":\"").append(course.getCourseName()).append("\",");
+            sb.append("\"code\":\"").append(course.getDepartment()).append("\",");
+            sb.append("\"title\":\"").append(course.getCatalogNumber()).append("\",");
             sb.append("}");
             if (i < courses.size() - 1) {
                 sb.append(",");
