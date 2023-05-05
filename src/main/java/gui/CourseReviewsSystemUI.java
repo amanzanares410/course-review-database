@@ -119,7 +119,6 @@ public class CourseReviewsSystemUI {
         String department = scanner.nextLine();
         System.out.println("Enter course catalog number:");
         int catalogNumber = Integer.parseInt(scanner.nextLine());
-        courseReviewsSystem.addCourse(department,catalogNumber);
         System.out.println("Enter review text:");
         String reviewText = scanner.nextLine();
         System.out.println("Enter rating (1-5):");
