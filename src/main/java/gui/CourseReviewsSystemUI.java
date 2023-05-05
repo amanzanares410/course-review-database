@@ -31,12 +31,6 @@ public class CourseReviewsSystemUI {
             System.out.println("Welcome to UVA Course Reviews System.");
             System.out.println("1. Register");
             System.out.println("2. Login");
-//            System.out.println("3. Add Course");
-//            System.out.println("4. Add Review");
-//            System.out.println("5. Get Reviews");
-//            System.out.println("6. Get All Courses");
-//            System.out.println("7. Generate Output JSON file");
-//            System.out.println("8. Exit");
 
             int choice = scanner.nextInt();
             scanner.nextLine();
@@ -47,24 +41,6 @@ public class CourseReviewsSystemUI {
                     break;
                 case 2:
                     login();
-                    break;
-                case 3:
-                    addCourse();
-                    break;
-                case 4:
-                    addReview();
-                    break;
-                case 5:
-                    getReviews();
-                    break;
-                case 6:
-                    getAllCourses();
-                    break;
-                case 7:
-                    generateJSONFile();
-                    break;
-                case 8:
-                    running = false;
                     break;
                 default:
                     System.out.println("Invalid choice.");
