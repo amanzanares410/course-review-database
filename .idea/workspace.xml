@@ -191,7 +191,21 @@
       <option name="project" value="LOCAL" />
       <updated>1683247633526</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="changing login screen">
+      <created>1683248078075</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1683248078075</updated>
+    </task>
+    <task id="LOCAL-00009" summary="changing login screen">
+      <created>1683248183244</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1683248183244</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -215,6 +229,7 @@
     <MESSAGE value="implementing database into the course review system" />
     <MESSAGE value="changing review class" />
     <MESSAGE value="changing get reviews" />
-    <option name="LAST_COMMIT_MESSAGE" value="changing get reviews" />
+    <MESSAGE value="changing login screen" />
+    <option name="LAST_COMMIT_MESSAGE" value="changing login screen" />
   </component>
 </project>

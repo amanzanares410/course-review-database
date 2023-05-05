@@ -51,38 +51,40 @@ public class CourseReviewsSystemUI {
 
     public void run2() {
         boolean running = true;
-        System.out.println("1. Add Course");
-        System.out.println("2. Add Review");
-        System.out.println("3. Get Reviews");
-        System.out.println("4. Get All Courses");
-        System.out.println("5. Generate Output JSON file");
-        System.out.println("6. Exit");
+        while(running) {
+            System.out.println("1. Add Course");
+            System.out.println("2. Add Review");
+            System.out.println("3. Get Reviews");
+            System.out.println("4. Get All Courses");
+            System.out.println("5. Generate Output JSON file");
+            System.out.println("6. Exit");
 
-        int choice = scanner.nextInt();
-        scanner.nextLine();
+            int choice = scanner.nextInt();
+            scanner.nextLine();
 
-        switch (choice) {
-            case 1:
-                addCourse();
-                break;
-            case 2:
-                addReview();
-                break;
-            case 3:
-                getReviews();
-                break;
-            case 4:
-                getAllCourses();
-                break;
-            case 5:
-                generateJSONFile();
-                break;
-            case 6:
-                running = false;
-                break;
-            default:
-                System.out.println("Invalid choice.");
-                break;
+            switch (choice) {
+                case 1:
+                    addCourse();
+                    break;
+                case 2:
+                    addReview();
+                    break;
+                case 3:
+                    getReviews();
+                    break;
+                case 4:
+                    getAllCourses();
+                    break;
+                case 5:
+                    generateJSONFile();
+                    break;
+                case 6:
+                    running = false;
+                    break;
+                default:
+                    System.out.println("Invalid choice.");
+                    break;
+            }
         }
     }
 
@@ -107,10 +109,11 @@ public class CourseReviewsSystemUI {
 
         if (courseReviewsSystem.login(username, password)) {
             System.out.println("Login successful.");
+            run2();
         } else {
             System.out.println("Invalid credentials.");
+            run1();
         }
-        run2();
     }
 
     private void addCourse() {
