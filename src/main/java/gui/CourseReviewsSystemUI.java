@@ -18,12 +18,6 @@ public class CourseReviewsSystemUI {
         scanner = new Scanner(System.in);
     }
 
-//    public void generateTables() {
-//        createTables = new CreateTables();
-//        createTables.connect();
-//        createTables.createTables();
-//    }
-
     public void run1() {
         boolean running = true;
         while (running) {
