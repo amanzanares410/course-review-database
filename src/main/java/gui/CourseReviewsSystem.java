@@ -10,6 +10,8 @@ public class CourseReviewsSystem {
 
     public CourseReviewsSystem() {
         database = new CreateTables();
+        database.connect();
+        database.createTables();
     }
 
     public void registerStudent(String username, String password) {

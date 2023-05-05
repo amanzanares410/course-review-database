@@ -177,7 +177,7 @@ public class CreateTables{
                 throw new IllegalStateException("Manager is not connected.");
             }
             //Parse Student records into Student objects
-            PreparedStatement statement = connection.prepareStatement("SELECT FROM Students WHERE login_name = ?");
+            PreparedStatement statement = connection.prepareStatement("SELECT * FROM Students WHERE login_name = ?");
             statement.setString(1, student.getLogin());
             ResultSet resultSet = statement.executeQuery();
 
@@ -292,7 +292,7 @@ public class CreateTables{
             ResultSet resultSet1 = statement1.executeQuery();
             int courseID = resultSet1.getInt("id");
 
-            PreparedStatement statement2 = connection.prepareStatement("SELECT FROM Reviews WHERE course_id = ?");
+            PreparedStatement statement2 = connection.prepareStatement("SELECT * FROM Reviews WHERE course_id = ?");
             statement2.setInt(1, courseID);
             ResultSet resultSet2 = statement2.executeQuery();
 

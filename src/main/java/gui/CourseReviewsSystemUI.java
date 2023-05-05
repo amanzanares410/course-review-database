@@ -151,8 +151,9 @@ public class CourseReviewsSystemUI {
         if (reviews.isEmpty()) {
             System.out.println("No reviews found for this course.");
         } else {
+            System.out.println("Reviews for " + department + " " + catalogNumber + ": ");
             for (Review review : reviews) {
-                System.out.println(review.getStudent().getLogin() + ": " + review.getReviewText());
+                System.out.println(review.getReviewText());
             }
         }
     }
