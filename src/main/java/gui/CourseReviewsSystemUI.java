@@ -86,9 +86,16 @@ public class CourseReviewsSystemUI {
         String username = scanner.nextLine();
         System.out.println("Enter password:");
         String password = scanner.nextLine();
+        System.out.println("Confirm password:");
+        String password2 = scanner.nextLine();
 
-        courseReviewsSystem.registerStudent(username, password);
-        System.out.println("Student registered successfully.");
+        if(password.equals(password2)) {
+            courseReviewsSystem.registerStudent(username, password);
+            System.out.println("Student registered successfully.");
+        }
+        else {
+            System.out.println("Password do not match");
+        }
     }
 
     private void login() {
