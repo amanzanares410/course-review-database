@@ -34,8 +34,8 @@ public class CourseReviewsSystem {
         database.addReview(newReview);
     }
 
-    public List<Review> getReviews(String courseCode) {
-        return database.getReviews(courseCode);
+    public List<Review> getReviews(Course course) {
+        return database.getReviews(course);
     }
 
     public List<Course> getAllCourses() {

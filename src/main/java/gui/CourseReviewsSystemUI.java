@@ -129,10 +129,13 @@ public class CourseReviewsSystemUI {
     }
 
     private void getReviews() {
-        System.out.println("Enter course code:");
-        String courseCode = scanner.nextLine();
+        System.out.println("Enter course department:");
+        String department = scanner.nextLine();
+        System.out.println("Enter course catalog number");
+        int catalogNumber = Integer.parseInt(scanner.nextLine());
 
-        List<Review> reviews = courseReviewsSystem.getReviews(courseCode);
+        Course course = new Course(department,catalogNumber);
+        List<Review> reviews = courseReviewsSystem.getReviews(course);
         if (reviews.isEmpty()) {
             System.out.println("No reviews found for this course.");
         } else {

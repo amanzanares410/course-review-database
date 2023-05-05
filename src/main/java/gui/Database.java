@@ -36,10 +36,10 @@ public class Database {
         reviews.add(review);
     }
 
-    public List<Review> getReviews(String courseCode) {
+    public List<Review> getReviews(Course course) {
         List<Review> filteredReviews = new ArrayList<>();
         for (Review review : reviews) {
-            if (review.getCourse().equals(courseCode)) {
+            if (review.getCourse().equals(course)) {
                 filteredReviews.add(review);
             }
         }
