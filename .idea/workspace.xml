@@ -5,7 +5,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="02de0d34-ad15-43f9-adc5-a82e65a6a4dd" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/src/main/java/gui/CourseReviewsSystemUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/gui/CourseReviewsSystemUI.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/reviews/CreateTables.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/reviews/CreateTables.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -213,7 +212,14 @@
       <option name="project" value="LOCAL" />
       <updated>1683251916170</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="fixing add review">
+      <created>1683252477660</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1683252477660</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -239,6 +245,7 @@
     <MESSAGE value="changing get reviews" />
     <MESSAGE value="changing login screen" />
     <MESSAGE value="fixing get reviews" />
-    <option name="LAST_COMMIT_MESSAGE" value="fixing get reviews" />
+    <MESSAGE value="fixing add review" />
+    <option name="LAST_COMMIT_MESSAGE" value="fixing add review" />
   </component>
 </project>

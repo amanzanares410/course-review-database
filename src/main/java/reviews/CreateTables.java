@@ -226,6 +226,27 @@ public class CreateTables{
             throw new IllegalStateException("Error in reading from the database");
         }
     }
+
+    public List<Course> getAllCourses() {
+        List<Course> courses = new ArrayList<>();
+        try {
+            if (connection== null || connection.isClosed()) {
+                throw new IllegalStateException("Manager is not connected.");
+            }
+            Statement statement = connection.createStatement();
+            String sql = "SELECT * FROM Courses";
+            ResultSet resultSet = statement.executeQuery(sql);
+            while(resultSet.next()) {
+                String department = resultSet.getString("department");
+                int catalogNumber = resultSet.getInt("catalog_number");
+                Course course = new Course(department, catalogNumber);
+                courses.add(course);
+            }
+            return courses;
+        } catch(SQLException e) {
+            throw new IllegalStateException("Error in reading from database");
+        }
+    }
     public void addReview(Review review) {
         try {
             if (connection== null || connection.isClosed()) {
