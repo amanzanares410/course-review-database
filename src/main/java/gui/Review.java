@@ -4,7 +4,6 @@ public class Review {
     private Course course;
     private Student student;
     private String reviewText;
-
     private int rating;
 
     public Review(Course course, Student student, String reviewText, int rating) {

@@ -1,5 +1,6 @@
 package reviews;
 import gui.Course;
+import gui.Review;
 import gui.Student;
 
 import java.sql.*;
@@ -193,6 +194,39 @@ public class CreateTables{
             PreparedStatement statement = connection.prepareStatement("INSERT INTO Courses (department, catalog_number) VALUES (?,?)");
             statement.setString(1, department);
             statement.setInt(2, catalogNumber);
+            statement.executeUpdate();
+        } catch (SQLException e) {
+            throw new IllegalStateException("Error in adding to database");
+        }
+    }
+    public Course getCourse(Course course) {
+        try{
+            PreparedStatement statement = connection.prepareStatement("SELECT FROM Courses WHERE department = ?");
+            statement.setString(1, course.getDepartment());
+            ResultSet resultSet = statement.executeQuery();
+
+            String department = resultSet.getString("department");
+            int catalogNumber = resultSet.getInt("catalog_number");
+            Course newCourse = new Course(department, catalogNumber);
+            return newCourse;
+        } catch (SQLException e) {
+            throw new IllegalStateException("Error in reading from the database");
+        }
+    }
+    public void addReview(Review review) {
+        try {
+            Course course = review.getCourse();
+            Student student = review.getStudent();
+            String reviewText = review.getReviewText();
+            int rating = review.getRating();
+            if ((rating) <= 0 || (rating)>5){
+                throw new IllegalArgumentException("Rating number should be between 1 and 5");
+            }
+            PreparedStatement statement = connection.prepareStatement("INSERT INTO Reviews (course, student, reviewText, rating) VALUES (?,?,?,?)");
+            statement.setObject(1,course);
+            statement.setObject(2, student);
+            statement.setString(3, reviewText);
+            statement.setInt(4, rating);
             statement.executeUpdate();
         } catch (SQLException e) {
             throw new IllegalStateException("Error in adding to database");

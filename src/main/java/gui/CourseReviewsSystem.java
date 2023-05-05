@@ -1,13 +1,15 @@
 package gui;
+import reviews.CreateTables;
+
 import java.util.List;
 
 
 public class CourseReviewsSystem {
-    private Database database;
+    private CreateTables database;
     private Student loggedInStudent;
 
     public CourseReviewsSystem() {
-        database = new Database();
+        database = new CreateTables();
     }
 
     public void registerStudent(String username, String password) {
@@ -16,7 +18,7 @@ public class CourseReviewsSystem {
     }
 
     public boolean login(String username, String password) {
-        Student student = database.getStudent(username);
+        Student student = database.getStudent(loggedInStudent);
         if (student != null && student.getPassword().equals(password)) {
             loggedInStudent = student;
             return true;
