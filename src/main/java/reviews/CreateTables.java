@@ -316,15 +316,25 @@ public class CreateTables{
     }
 
     public boolean hasReviewedCourse(Student student, Course course) {
-        try {connection = DriverManager.getConnection("jdbc:sqlite:Reviews.sqlite3");
-             PreparedStatement statement1 = connection.prepareStatement("SELECT COUNT(*) FROM reviews WHERE student_username = ? AND course_dept = ? AND course_num = ?");
+        try {
+             PreparedStatement statement1 = connection.prepareStatement("SELECT id FROM Students WHERE login_name = ?");
              statement1.setString(1, student.getLogin());
-             statement1.setString(2, course.getDepartment());
-             statement1.setInt(3, course.getCatalogNumber());
-                ResultSet rs = statement1.executeQuery();
-                rs.next();
-                int count = rs.getInt(1);
-                return count > 0;
+             ResultSet resultSet1 = statement1.executeQuery();
+             int studentID = resultSet1.getInt("id");
+
+             PreparedStatement statement2 = connection.prepareStatement("SELECT id FROM Courses WHERE department = ? AND catalog_number = ?");
+             statement2.setString(1, course.getDepartment());
+             statement2.setInt(2, course.getCatalogNumber());
+             ResultSet resultSet2 = statement2.executeQuery();
+             int courseID = resultSet2.getInt("id");
+
+             PreparedStatement statement3 = connection.prepareStatement("SELECT COUNT(*) FROM Reviews WHERE student_id = ? AND course_id = ?");
+             statement3.setInt(1, studentID);
+             statement3.setInt(2, courseID);
+             ResultSet rs = statement1.executeQuery();
+             rs.next();
+             int count = rs.getInt(1);
+             return count > 0;
         }catch (SQLException e) {
             e.printStackTrace();
             return false;

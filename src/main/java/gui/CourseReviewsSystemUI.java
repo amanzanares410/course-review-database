@@ -47,7 +47,7 @@ public class CourseReviewsSystemUI {
         while(running) {
             System.out.println("1. Add Review");
             System.out.println("2. Get Reviews");
-            System.out.println("6. Exit");
+            System.out.println("3. Exit");
 
             int choice = scanner.nextInt();
             scanner.nextLine();
@@ -117,15 +117,16 @@ public class CourseReviewsSystemUI {
     private void addReview() {
         System.out.println("Enter course name:");
         String courseName = scanner.nextLine();
-
-        if (!courseName.matches("[A-Z]{4} \\d{4}")) { // https://stackoverflow.com/questions/28145881/how-does-d-work-in-java
+        String[] parts = courseName.split(" ");
+        String department = parts[0];
+        String number = parts[1];
+        int catalogNumber = Integer.parseInt(parts[1]);
+        String department2 = department.toUpperCase();
+        if ((!department2.equals(department) && department.length() <= 4 && number.length() <= 4)) { // https://stackoverflow.com/questions/28145881/how-does-d-work-in-java
             System.out.println("Invalid course name format.");
             return;
         }
-
-        String[] parts = courseName.split(" ");
-        String department = parts[0];
-        int catalogNumber = Integer.parseInt(parts[1]);
+        courseReviewsSystem.addCourse(department,catalogNumber);
         System.out.println("Enter review text:");
         String reviewText = scanner.nextLine();
         System.out.println("Enter rating (1-5):");
@@ -143,15 +144,15 @@ public class CourseReviewsSystemUI {
     private void getReviews() {
         System.out.println("Enter course name:");
         String courseName = scanner.nextLine();
-
-        if (!courseName.matches("[A-Z]{4} \\d{4}")) { // https://stackoverflow.com/questions/28145881/how-does-d-work-in-java
+        String[] parts = courseName.split(" ");
+        String department = parts[0];
+        String number = parts[1];
+        int catalogNumber = Integer.parseInt(parts[1]);
+        String department2 = department.toUpperCase();
+        if ((!department2.equals(department) && department.length() <= 4 && number.length() <= 4)) { // https://stackoverflow.com/questions/28145881/how-does-d-work-in-java
             System.out.println("Invalid course name format.");
             return;
         }
-
-        String[] parts = courseName.split(" ");
-        String department = parts[0];
-        int catalogNumber = Integer.parseInt(parts[1]);
         Course course = new Course(department,catalogNumber);
         List<Review> reviews = courseReviewsSystem.getReviews(course);
         if (reviews.isEmpty()) {
@@ -163,13 +164,6 @@ public class CourseReviewsSystemUI {
             }
             double averageRating = courseReviewsSystem.getAverageRating(course);
             System.out.println("Average rating: " + averageRating);
-        }
-    }
-
-    private void getAllCourses() {
-        List<Course> courses = courseReviewsSystem.getAllCourses();
-        for (Course course : courses) {
-            System.out.println(course.getDepartment() + " - " + course.getCatalogNumber());
         }
     }
 
