@@ -29,4 +29,5 @@ public class Course {
         this.catalogNumber = catalogNumber;
     }
 
+
 }

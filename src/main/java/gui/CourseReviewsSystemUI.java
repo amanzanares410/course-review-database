@@ -102,19 +102,15 @@ public class CourseReviewsSystemUI {
     }
 
     private void addCourse() {
-        System.out.println("Enter course name:");
-        String courseName = scanner.nextLine();
+        System.out.println("Enter course department:");
+        String department = scanner.nextLine();
+        System.out.println("Enter course catalog number:");
+        String catalogNumber = scanner.nextLine();
 
-        if (!courseName.matches("[A-Z]{4} \\d{4}")) { // https://stackoverflow.com/questions/28145881/how-does-d-work-in-java
-            System.out.println("Invalid course name format.");
-            return;
-        }
+        int intCatalogNumber = Integer.parseInt(catalogNumber);
+        Course course = new Course(department, intCatalogNumber);
 
-        String[] parts = courseName.split(" ");
-        String department = parts[0];
-        int catalogNumber = Integer.parseInt(parts[1]);
-
-        courseReviewsSystem.addCourse(department, catalogNumber);
+        courseReviewsSystem.addCourse(department, intCatalogNumber);
         System.out.println("Course added successfully.");
     }
 
@@ -145,11 +141,17 @@ public class CourseReviewsSystemUI {
     }
 
     private void getReviews() {
-        System.out.println("Enter course department:");
-        String department = scanner.nextLine();
-        System.out.println("Enter course catalog number");
-        int catalogNumber = Integer.parseInt(scanner.nextLine());
+        System.out.println("Enter course name:");
+        String courseName = scanner.nextLine();
 
+        if (!courseName.matches("[A-Z]{4} \\d{4}")) { // https://stackoverflow.com/questions/28145881/how-does-d-work-in-java
+            System.out.println("Invalid course name format.");
+            return;
+        }
+
+        String[] parts = courseName.split(" ");
+        String department = parts[0];
+        int catalogNumber = Integer.parseInt(parts[1]);
         Course course = new Course(department,catalogNumber);
         List<Review> reviews = courseReviewsSystem.getReviews(course);
         if (reviews.isEmpty()) {
