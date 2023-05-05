@@ -132,11 +132,19 @@ public class CourseReviewsSystemUI {
         int catalogNumber = Integer.parseInt(scanner.nextLine());
         System.out.println("Enter review text:");
         String reviewText = scanner.nextLine();
-        System.out.println("Enter rating:");
-        int rating = Integer.parseInt(scanner.nextLine());
+
+        int rating = 0; // must set up to check if rating is 1-5
+        while (rating < 1 || rating > 5) {
+            System.out.println("Enter rating (1-5):");
+            rating = Integer.parseInt(scanner.nextLine());
+            if (rating < 1 || rating > 5) {
+                System.out.println("Invalid rating. Please enter a number between 1 and 5.");
+            }
+        }
 
         Course course = new Course(department, catalogNumber);
         courseReviewsSystem.addReview(course, reviewText, rating);
+
         System.out.println("Review added successfully.");
     }
 
@@ -155,6 +163,8 @@ public class CourseReviewsSystemUI {
             for (Review review : reviews) {
                 System.out.println(review.getReviewText());
             }
+            double averageRating = courseReviewsSystem.getAverageRating(course);
+            System.out.println("Average rating: " + averageRating);
         }
     }
 
