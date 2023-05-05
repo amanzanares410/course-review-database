@@ -45,11 +45,8 @@ public class CourseReviewsSystemUI {
     public void run2() {
         boolean running = true;
         while(running) {
-            System.out.println("1. Add Course");
-            System.out.println("2. Add Review");
-            System.out.println("3. Get Reviews");
-            System.out.println("4. Get All Courses");
-            System.out.println("5. Generate Output JSON file");
+            System.out.println("1. Add Review");
+            System.out.println("2. Get Reviews");
             System.out.println("6. Exit");
 
             int choice = scanner.nextInt();
@@ -57,21 +54,12 @@ public class CourseReviewsSystemUI {
 
             switch (choice) {
                 case 1:
-                    addCourse();
-                    break;
-                case 2:
                     addReview();
                     break;
-                case 3:
+                case 2:
                     getReviews();
                     break;
-                case 4:
-                    getAllCourses();
-                    break;
-                case 5:
-                    generateJSONFile();
-                    break;
-                case 6:
+                case 3:
                     running = false;
                     break;
                 default:
@@ -133,14 +121,10 @@ public class CourseReviewsSystemUI {
         int catalogNumber = Integer.parseInt(scanner.nextLine());
         System.out.println("Enter review text:");
         String reviewText = scanner.nextLine();
-
-        int rating = 0; // must set up to check if rating is 1-5
-        while (rating < 1 || rating > 5) {
-            System.out.println("Enter rating (1-5):");
-            rating = Integer.parseInt(scanner.nextLine());
-            if (rating < 1 || rating > 5) {
-                System.out.println("Invalid rating. Please enter a number between 1 and 5.");
-            }
+        System.out.println("Enter rating (1-5):");
+        int rating = Integer.parseInt(scanner.nextLine());
+        if (rating < 1 || rating > 5) {
+            System.out.println("Invalid rating. Please enter a number between 1 and 5.");
         }
 
         Course course = new Course(department, catalogNumber);

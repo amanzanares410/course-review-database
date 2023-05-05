@@ -11,11 +11,8 @@
       <change beforePath="$PROJECT_DIR$/.gradle/7.5.1/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.5.1/fileHashes/fileHashes.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/7.5.1/fileHashes/resourceHashesCache.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.5.1/fileHashes/resourceHashesCache.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/previous-compilation-data.bin" beforeDir="false" afterPath="$PROJECT_DIR$/build/tmp/compileJava/previous-compilation-data.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/gui/CourseReviewsSystem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/gui/CourseReviewsSystem.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/gui/CourseReviewsSystemUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/gui/CourseReviewsSystemUI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/reviews/CreateTables.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/reviews/CreateTables.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -236,7 +233,28 @@
       <option name="project" value="LOCAL" />
       <updated>1683252845180</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="fixing bugs">
+      <created>1683255586798</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1683255586798</updated>
+    </task>
+    <task id="LOCAL-00015" summary="edits">
+      <created>1683255652324</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1683255652324</updated>
+    </task>
+    <task id="LOCAL-00016" summary="adding password confirmation to register">
+      <created>1683255855065</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1683255855065</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -264,6 +282,20 @@
     <MESSAGE value="fixing get reviews" />
     <MESSAGE value="fixing add review" />
     <MESSAGE value="implementing get all courses" />
-    <option name="LAST_COMMIT_MESSAGE" value="implementing get all courses" />
+    <MESSAGE value="fixing bugs" />
+    <MESSAGE value="edits" />
+    <MESSAGE value="adding password confirmation to register" />
+    <option name="LAST_COMMIT_MESSAGE" value="adding password confirmation to register" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/gui/CourseReviewsSystemUI.java</url>
+          <line>129</line>
+          <option name="timeStamp" value="10" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>
