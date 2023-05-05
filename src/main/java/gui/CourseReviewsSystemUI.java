@@ -122,7 +122,7 @@ public class CourseReviewsSystemUI {
         System.out.println("Enter course name:");
         String courseName = scanner.nextLine();
 
-        if (!courseName.matches("[A-Z]{4} \\d{4}")) { // https://stackoverflow.com/questions/28145881/how-does-d-work-in-java
+        if (!courseName.matches("[A-Z]{1,4} \\d{4}")) { // https://stackoverflow.com/questions/28145881/how-does-d-work-in-java
             System.out.println("Invalid course name format.");
             return;
         }
