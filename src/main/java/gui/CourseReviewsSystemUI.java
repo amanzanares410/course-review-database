@@ -24,19 +24,19 @@ public class CourseReviewsSystemUI {
         createTables.createTables();
     }
 
-    public void run() {
+    public void run1() {
         generateTables();
         boolean running = true;
         while (running) {
             System.out.println("Welcome to UVA Course Reviews System.");
             System.out.println("1. Register");
             System.out.println("2. Login");
-            System.out.println("3. Add Course");
-            System.out.println("4. Add Review");
-            System.out.println("5. Get Reviews");
-            System.out.println("6. Get All Courses");
-            System.out.println("7. Generate Output JSON file");
-            System.out.println("8. Exit");
+//            System.out.println("3. Add Course");
+//            System.out.println("4. Add Review");
+//            System.out.println("5. Get Reviews");
+//            System.out.println("6. Get All Courses");
+//            System.out.println("7. Generate Output JSON file");
+//            System.out.println("8. Exit");
 
             int choice = scanner.nextInt();
             scanner.nextLine();
@@ -73,6 +73,43 @@ public class CourseReviewsSystemUI {
         }
     }
 
+    public void run2() {
+        boolean running = true;
+        System.out.println("1. Add Course");
+        System.out.println("2. Add Review");
+        System.out.println("3. Get Reviews");
+        System.out.println("4. Get All Courses");
+        System.out.println("5. Generate Output JSON file");
+        System.out.println("6. Exit");
+
+        int choice = scanner.nextInt();
+        scanner.nextLine();
+
+        switch (choice) {
+            case 1:
+                addCourse();
+                break;
+            case 2:
+                addReview();
+                break;
+            case 3:
+                getReviews();
+                break;
+            case 4:
+                getAllCourses();
+                break;
+            case 5:
+                generateJSONFile();
+                break;
+            case 6:
+                running = false;
+                break;
+            default:
+                System.out.println("Invalid choice.");
+                break;
+        }
+    }
+
     private void register() {
         System.out.println("Enter username:");
         String username = scanner.nextLine();
@@ -97,6 +134,7 @@ public class CourseReviewsSystemUI {
         } else {
             System.out.println("Invalid credentials.");
         }
+        run2();
     }
 
     private void addCourse() {
@@ -179,6 +217,6 @@ public class CourseReviewsSystemUI {
 
     public static void main(String[] args) {
         CourseReviewsSystemUI ui = new CourseReviewsSystemUI();
-        ui.run();
+        ui.run1();
     }
 }
