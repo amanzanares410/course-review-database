@@ -94,9 +94,6 @@ public class CourseReviewsSystemUI {
         System.out.println("Enter password:");
         String password = scanner.nextLine();
 
-        Student student = new Student(username,password);
-        createTables.addStudent(student);
-
         courseReviewsSystem.registerStudent(username, password);
         System.out.println("Student registered successfully.");
     }

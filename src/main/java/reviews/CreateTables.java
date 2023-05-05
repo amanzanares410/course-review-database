@@ -4,6 +4,7 @@ import gui.Review;
 import gui.Student;
 
 import java.sql.*;
+import java.util.*;
 public class CreateTables{
     Connection connection;
 
@@ -247,20 +248,37 @@ public class CreateTables{
             throw new IllegalStateException("Error in adding to database");
         }
     }
-    public Review getCourse(Review review) {
+    public List<Review> getReviews(Course course) {
+        List<Review> reviews = new ArrayList<>();
         try{
             if (connection== null || connection.isClosed()) {
                 throw new IllegalStateException("Manager is not connected.");
             }
-            PreparedStatement statement = connection.prepareStatement("SELECT FROM Reviews WHERE reviewText = ?");
-            statement.setString(1, review.getReviewText());
-            ResultSet resultSet = statement.executeQuery();
-            Course course = new Course();
-            Student student = new Student();
-            String reviewText = resultSet.getString("reviewText");
-            int rating = resultSet.getInt("rating");
-            Review newReview = new Review(course, student, reviewText, rating);
-            return newReview;
+
+            PreparedStatement statement1 = connection.prepareStatement("SELECT id from Courses WHERE department = ? AND catalog_number = ?");
+            statement1.setString(1,course.getDepartment());
+            statement1.setInt(2, course.getCatalogNumber());
+            ResultSet resultSet1 = statement1.executeQuery();
+            int courseID = resultSet1.getInt("id");
+
+            PreparedStatement statement2 = connection.prepareStatement("SELECT FROM Reviews WHERE course_id = ?");
+            statement2.setInt(1, courseID);
+            ResultSet resultSet2 = statement2.executeQuery();
+
+
+            while(resultSet2.next()) {
+                int studentID = resultSet2.getInt("student_id");
+                String reviewText = resultSet2.getString("review_text");
+                int rating = resultSet2.getInt("rating");
+                PreparedStatement statement3 = connection.prepareStatement("SELECT * FROM Students WHERE id = ?");
+                statement3.setInt(1, studentID);
+                ResultSet resultSet3 = statement3.executeQuery();
+                String username = resultSet3.getString("login_name");
+                String password = resultSet3.getString("password");
+                Student student = new Student(username,password);
+                reviews.add(new Review(course, student, reviewText, rating));
+            }
+            return reviews;
         } catch (SQLException e) {
             throw new IllegalStateException("Error in reading from the database");
         }

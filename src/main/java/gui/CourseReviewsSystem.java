@@ -18,7 +18,7 @@ public class CourseReviewsSystem {
     }
 
     public boolean login(String username, String password) {
-        Student student = database.getStudent(loggedInStudent);
+        Student student = database.getStudent(new Student(username,password));
         if (student != null && student.getPassword().equals(password)) {
             loggedInStudent = student;
             return true;

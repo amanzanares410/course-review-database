@@ -1,6 +1,7 @@
 package gui;
 
 public class Review {
+
     private Course course;
     private Student student;
     private String reviewText;
