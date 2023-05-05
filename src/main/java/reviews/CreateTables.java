@@ -4,10 +4,10 @@ import gui.Student;
 
 import java.sql.*;
 public class CreateTables{
-    Connection conn;
+    Connection connection;
 
     public void connect() {
-        if (conn != null) {
+        if (connection != null) {
             throw new IllegalStateException("Manager is already connected");
         }
         try {
@@ -15,9 +15,9 @@ public class CreateTables{
             Class.forName("org.sqlite.JDBC");
 
             // Open a connection to the database
-            conn = DriverManager.getConnection("jdbc:sqlite:Reviews.sqlite3");
-            conn.setAutoCommit(false);
-            conn.commit();
+            connection = DriverManager.getConnection("jdbc:sqlite:Reviews.sqlite3");
+            connection.setAutoCommit(false);
+            connection.commit();
         } catch(ClassNotFoundException | SQLException e) {
             throw new IllegalStateException(e);
         }
@@ -26,7 +26,7 @@ public class CreateTables{
     public void createTables() {
         try {
             // Create a Statement object
-            Statement stmt = conn.createStatement();
+            Statement stmt = connection.createStatement();
 
             // Execute the SQL statement to create the Students table
             String sql1 = "CREATE TABLE IF NOT EXISTS Students (\n"
@@ -63,7 +63,93 @@ public class CreateTables{
             System.err.println(e.getClass().getName() + ": " + e.getMessage());
             System.exit(0);
         }
-        System.out.println("Tables created successfully");
+     //   System.out.println("Tables created successfully");
+    }
+    public boolean tableExists(Connection connection, String tableName) {
+        try {
+            tableName = tableName.toUpperCase();
+            DatabaseMetaData dbmd = connection.getMetaData();
+            ResultSet rs = dbmd.getTables(null, null, tableName, new String[] {"TABLE"});
+            boolean x = rs.next();
+            rs.close();
+            return x;
+        } catch (SQLException e) {
+            throw new RuntimeException();
+        }
+    }
+    public void clear() {
+        try {
+            if (connection== null || connection.isClosed()) {
+                throw new IllegalStateException("Manager is not connected.");
+            }
+            if (!tableExists(connection, "Students")) {
+                throw new IllegalStateException("Students Table does not exist.");
+            } else if (!tableExists(connection, "Courses")) {
+                throw new IllegalStateException("Courses Table does not exist.");
+            } else if (!tableExists(connection, "Reviews")) {
+                throw new IllegalStateException("Reviews Table does not exist.");
+            }
+            String clearStudentsTable = "DELETE FROM Students;";
+            String clearCoursesTable = "DELETE FROM Courses;";
+            String clearReviewsTable = "DELETE FROM Reviews;";
+
+            Statement statementStudents = connection.createStatement();
+            Statement statementCourses = connection.createStatement();
+            Statement statementReviews = connection.createStatement();
+
+            statementStudents.executeUpdate(clearStudentsTable);
+            statementCourses.executeUpdate(clearCoursesTable);
+            statementReviews.executeUpdate(clearReviewsTable);
+
+            statementStudents.close();
+            statementCourses.close();
+            statementReviews.close();
+
+        } catch (SQLException e) {
+            throw new RuntimeException();
+        }
+    }
+    public void deleteTables() {
+        try {
+            if (connection == null || connection.isClosed()) {
+                throw new IllegalStateException("Manager is not connected.");
+            }
+            if (!tableExists(connection, "Students")) {
+                throw new IllegalStateException("Students Table does not exist.");
+            } else if (!tableExists(connection, "Courses")) {
+                throw new IllegalStateException("Courses Table does not exist.");
+            } else if (!tableExists(connection, "Reviews")) {
+                throw new IllegalStateException("Reviews Table does not exist.");
+            }
+            String deleteStudentsTable = "DROP TABLE IF EXISTS Students;";
+            String deleteCoursesTable = "DROP TABLE IF EXISTS Courses;";
+            String deleteReviewsTable = "DROP TABLE IF EXISTS Reviews;";
+
+            Statement statementStudents = connection.createStatement();
+            statementStudents.executeUpdate(deleteStudentsTable);
+            statementStudents.close();
+
+            Statement statementCourses = connection.createStatement();
+            statementCourses.executeUpdate(deleteCoursesTable);
+            statementCourses.close();
+
+            Statement statementReviews = connection.createStatement();
+            statementReviews.executeUpdate(deleteReviewsTable);
+            statementReviews.close();
+
+        } catch (SQLException e) {
+            throw new RuntimeException();
+        }
+    }
+    public void disconnect() {
+        try {
+            if (connection.isClosed()) {
+                throw new IllegalStateException("Connection is already closed.");
+            }
+            connection.close();
+        } catch (SQLException e) {
+            throw new RuntimeException();
+        }
     }
 
     //Resource used to create prepared statement: https://stackoverflow.com/questions/370818/cleanest-way-to-build-an-sql-string-in-java
@@ -71,7 +157,7 @@ public class CreateTables{
         try {
             String login = student.getLogin();
             String password = student.getPassword();
-            PreparedStatement statement = conn.prepareStatement("INSERT INTO Students (login_name, password) VALUES (?,?)");
+            PreparedStatement statement = connection.prepareStatement("INSERT INTO Students (login_name, password) VALUES (?,?)");
             statement.setString(1, login);
             statement.setString(2, password);
             statement.executeUpdate();
@@ -83,7 +169,7 @@ public class CreateTables{
     public Student getStudent(Student student) {
         try{
             //Parse Student records into Student objects
-            PreparedStatement statement = conn.prepareStatement("SELECT FROM Students WHERE login_name = ?");
+            PreparedStatement statement = connection.prepareStatement("SELECT FROM Students WHERE login_name = ?");
             statement.setString(1, student.getLogin());
             ResultSet resultSet = statement.executeQuery();
 
@@ -104,7 +190,7 @@ public class CreateTables{
             if ((catalogNumber) <= 0){
                 throw new IllegalArgumentException("Catalog number should be positive");
             }
-            PreparedStatement statement = conn.prepareStatement("INSERT INTO Courses (department, catalog_number) VALUES (?,?)");
+            PreparedStatement statement = connection.prepareStatement("INSERT INTO Courses (department, catalog_number) VALUES (?,?)");
             statement.setString(1, department);
             statement.setInt(2, catalogNumber);
             statement.executeUpdate();
