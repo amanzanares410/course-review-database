@@ -232,15 +232,25 @@ public class CreateTables{
                 throw new IllegalStateException("Manager is not connected.");
             }
             Course course = review.getCourse();
+            PreparedStatement statement1 = connection.prepareStatement("SELECT id from Courses WHERE department = ? AND catalog_number = ?");
+            statement1.setString(1,course.getDepartment());
+            statement1.setInt(2, course.getCatalogNumber());
+            ResultSet resultSet1 = statement1.executeQuery();
+            int courseID = resultSet1.getInt("id");
             Student student = review.getStudent();
+            PreparedStatement statement2 = connection.prepareStatement("SELECT id from Students WHERE login_name = ? AND password = ?");
+            statement2.setString(1,student.getLogin());
+            statement2.setString(2, student.getPassword());
+            ResultSet resultSet2 = statement2.executeQuery();
+            int studentID = resultSet2.getInt("id");
             String reviewText = review.getReviewText();
             int rating = review.getRating();
             if ((rating) <= 0 || (rating)>5){
                 throw new IllegalArgumentException("Rating number should be between 1 and 5");
             }
-            PreparedStatement statement = connection.prepareStatement("INSERT INTO Reviews (course, student, reviewText, rating) VALUES (?,?,?,?)");
-            statement.setObject(1,course);
-            statement.setObject(2, student);
+            PreparedStatement statement = connection.prepareStatement("INSERT INTO Reviews (student_id, course_id, review_text, rating) VALUES (?,?,?,?)");
+            statement.setInt(1,studentID);
+            statement.setInt(2, courseID);
             statement.setString(3, reviewText);
             statement.setInt(4, rating);
             statement.executeUpdate();
