@@ -232,4 +232,18 @@ public class CreateTables{
             throw new IllegalStateException("Error in adding to database");
         }
     }
+    public Review getCourse(Review review) {
+        try{
+            PreparedStatement statement = connection.prepareStatement("SELECT FROM Reviews WHERE reviewText = ?");
+            statement.setString(1, review.getReviewText());
+            ResultSet resultSet = statement.executeQuery();
+
+            String department = resultSet.getString("department");
+            int catalogNumber = resultSet.getInt("catalog_number");
+            Course newCourse = new Course(department, catalogNumber);
+            return newCourse;
+        } catch (SQLException e) {
+            throw new IllegalStateException("Error in reading from the database");
+        }
+    }
 }
