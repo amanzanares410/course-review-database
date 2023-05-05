@@ -29,8 +29,8 @@ public class CourseReviewsSystem {
         database.addCourse(newCourse);
     }
 
-    public void addReview(String courseCode, String reviewText, int rating) {
-        Review newReview = new Review(courseCode, loggedInStudent, reviewText, rating);
+    public void addReview(Course course, String reviewText, int rating) {
+        Review newReview = new Review(course, loggedInStudent, reviewText, rating);
         database.addReview(newReview);
     }
 

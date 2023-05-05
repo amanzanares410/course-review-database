@@ -114,14 +114,17 @@ public class CourseReviewsSystemUI {
     }
 
     private void addReview() {
-        System.out.println("Enter course code:");
-        String courseCode = scanner.nextLine();
+        System.out.println("Enter course department:");
+        String department = scanner.nextLine();
+        System.out.println("Enter course catalog number:");
+        int catalogNumber = Integer.parseInt(scanner.nextLine());
         System.out.println("Enter review text:");
         String reviewText = scanner.nextLine();
         System.out.println("Enter rating:");
         int rating = Integer.parseInt(scanner.nextLine());
 
-        courseReviewsSystem.addReview(courseCode, reviewText, rating);
+        Course course = new Course(department, catalogNumber);
+        courseReviewsSystem.addReview(course, reviewText, rating);
         System.out.println("Review added successfully.");
     }
 

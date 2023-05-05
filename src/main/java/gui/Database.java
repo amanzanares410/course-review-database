@@ -39,7 +39,7 @@ public class Database {
     public List<Review> getReviews(String courseCode) {
         List<Review> filteredReviews = new ArrayList<>();
         for (Review review : reviews) {
-            if (review.getCourseCode().equals(courseCode)) {
+            if (review.getCourse().equals(courseCode)) {
                 filteredReviews.add(review);
             }
         }
